@@ -1,0 +1,114 @@
+{
+    "code": 1,
+    "lists": [
+        {
+            "name": "Disney's Oceans 1",
+            "description": "Explore the depths of our planet's oceans. Experience the stories that connect their world to ours. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "sources": [
+                {
+                    "src": "./example.mp4?name=xigua&lable=720",
+                    "type": "video/mp4"
+                },
+                {
+                    "src": "http://vjs.zencdn.net/v/oceans.webm",
+                    "type": "video/webm"
+                }
+            ],
+            "thumbnail": [
+                {
+                    "srcset": "https://www.clustrmaps.com/map_v2.png?d=aUtZvqqj1f3u9zPStLAb-7E8tzUBJD2WKPDeu5fD0w8&cl=ffffff",
+                    "type": "image/jpeg",
+                    "media": "(min-width: 400px;)"
+                },
+                {
+                    "src": "https://www.clustrmaps.com/map_v2.png?d=aUtZvqqj1f3u9zPStLAb-7E8tzUBJD2WKPDeu5fD0w8&cl=ffffff"
+                }
+            ]
+        },
+        {
+            "name": "Disney's Oceans 2",
+            "description": "Explore the depths of our planet's oceans. Experience the stories that connect their world to ours. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "duration": 45,
+            "sources": [
+                {
+                    "src": "http://vjs.zencdn.net/v/oceans.mp4?2",
+                    "type": "video/mp4"
+                },
+                {
+                    "src": "http://vjs.zencdn.net/v/oceans.webm?2",
+                    "type": "video/webm"
+                }
+            ],
+            "thumbnail": [
+                {
+                    "srcset": "https://www.clustrmaps.com/map_v2.png?d=aUtZvqqj1f3u9zPStLAb-7E8tzUBJD2WKPDeu5fD0w8&cl=ffffff",
+                    "type": "image/jpeg",
+                    "media": "(min-width: 400px;)"
+                },
+                {
+                    "src": "https://www.clustrmaps.com/map_v2.png?d=aUtZvqqj1f3u9zPStLAb-7E8tzUBJD2WKPDeu5fD0w8&cl=ffffff"
+                }
+            ]
+        },
+        {
+            "name": "Disney\"s Oceans 3",
+            "description": "Explore the depths of our planet's oceans. Experience the stories that connect their world to ours. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "duration": 45,
+            "sources": [
+                {
+                    "src": "http://vjs.zencdn.net/v/oceans.mp4?3",
+                    "type": "video/mp4"
+                },
+                {
+                    "src": "http://vjs.zencdn.net/v/oceans.webm?3",
+                    "type": "video/webm"
+                }
+            ],
+            "thumbnail": [
+                {
+                    "srcset": "https://www.clustrmaps.com/map_v2.png?d=aUtZvqqj1f3u9zPStLAb-7E8tzUBJD2WKPDeu5fD0w8&cl=ffffff",
+                    "type": "image/jpeg",
+                    "media": "(min-width: 400px;)"
+                },
+                {
+                    "src": "https://www.clustrmaps.com/map_v2.png?d=aUtZvqqj1f3u9zPStLAb-7E8tzUBJD2WKPDeu5fD0w8&cl=ffffff"
+                }
+            ]
+        },
+        {
+            "name": "Sintel (No Thumbnail)",
+            "description": "The film follows a girl named Sintel who is searching for a baby dragon she calls Scales.",
+            "sources": [
+                {
+                    "src": "http://media.w3.org/2010/05/sintel/trailer.mp4",
+                    "type": "video/mp4"
+                },
+                {
+                    "src": "http://media.w3.org/2010/05/sintel/trailer.webm",
+                    "type": "video/webm"
+                },
+                {
+                    "src": "http://media.w3.org/2010/05/sintel/trailer.ogv",
+                    "type": "video/ogg"
+                }
+            ],
+            "thumbnail": false
+        },
+        {
+            "name": "Invalid Source",
+            "sources": [
+                {
+                    "src": "Invalid"
+                }
+            ]
+        },
+        {
+            "name": "Invalid Source",
+            "sources": [
+                {
+                    "src": "Invalid"
+                }
+            ]
+        }
+    ]
+}

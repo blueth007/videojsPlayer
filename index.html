@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video js</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.11.1/video-js.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.11.1/video.min.js"></script>
+    <!-- videojs方法 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/video.js@7.11.1/dist/video.js"
+        integrity="sha256-rJCMU9PtnZQSUsJBGknM2GRyN61r2KEpCUPddHlDJJQ=" crossorigin="anonymous"></script> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/video.js@7.11.1/dist/lang/zh-Hans.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+
+    <!-- playlist 播放列表 -->
+    <script src="https://cdn.jsdelivr.net/npm/videojs-playlist@4.3.1/dist/videojs-playlist.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/videojs-playlist-ui@3.8.0/dist/videojs-playlist-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/videojs-playlist-ui@3.8.0/dist/lang/zh-Hans.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/videojs-playlist-ui@3.8.0/dist/videojs-playlist-ui.vertical.css">
+
+
+    <link rel="stylesheet" href="./gobal.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Videjs example</h1>
+    </header>
+    <div class="wrap-video">
+        <video id="my_video" playsinline="true" class="video-js  vjs-default-skin vjs-big-play-centered  vjs-fluid">
+            <!-- <source type="video/mp4"
+                src="http://www.yipinworld.com/UploadFiles/2016-06-05/897f87a8-e279-41de-a9cb-0fce72148bc7.mp4"> -->
+            <!-- <source type="video/mp4" src="http://vjs.zencdn.net/v/oceans.mp4"> -->
+        </video>
+        <div class="vjs-playlist  ">
+            <!--
+        The contents of this element will be filled based on the
+        currently loaded playlist
+      -->
+        </div>
+    </div>
+
+    <footer>
+        <h2>footer</h2>
+    </footer>
+
+    <!-- 插件 -->
+    <script src="./plugin/advanced.js"></script>
+    <script src="./plugin/outlayer.js"></script>
+    <script src="./plugin/switchQuality.js"></script>
+    <script src="./settingPanel/settingItem.js"></script>
+    <script src="./settingPanel/setting.js"></script>
+    <script src="./wideScreen/widescreenButton.js"></script>
+    <script src="./qualityPanel/qualityItem.js"></script>
+    <script src="./qualityPanel/qualityButton.js"></script>
+    <script src="./buttonRight/rightButton.js"></script>
+    <script src="./progressBar/canvasPanel.js"></script>
+    <script src="./progressBar/MouseTimeDisplay.js"></script>
+    <script src="./title/title.js"></script>
+    <script>
+        const options = {
+            // muted: true,  //静音
+            fluid: true, //流体模式
+            // fill: true, //填充模式
+            responsive: true, //响应模式
+            autoplay: false,
+            language: "zh-Hans",
+            playsinline: true,
+            preload: 'auto',
+            timeDivider: false, // 时间分割线
+            loop: false, //循环播放
+            // 更多配置.....
+            controls: true, // 是否显示控制条
+            loadingSpinner: true, //loading....
+            // sources: [{
+            //     type: "application/x-mpegURL", //m3u8 源 application/x-mpegURL
+            //     src: 'https://36421.long-vod.cdn.aodianyun.com/u/36421/m3u8/adaptive/694bd1238e40861c480698cdbf6ca4a9.m3u8',
+            //     // src: "http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8",
+            //     //src: "http://39.134.157.205/PLTV/88888888/224/3221225591/index.m3u8",
+            //     label: "720"
+            // }],
+            sources: [{
+                type: "video/mp4",
+                // src: 'http://www.yipinworld.com/UploadFiles/2016-06-05/897f87a8-e279-41de-a9cb-0fce72148bc7.mp4'
+                src: './example.mp4?xigua',
+                label: "720"
+            }],
+            // 切换清晰度 
+            qualities: [{
+                    name: "1080P",
+                    label: "1080",
+                    // type: "video/mp4",
+                    // src: "https://s1.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4"
+                },
+                {
+                    name: "720P",
+                    label: "720",
+                    // type: "video/mp4",
+                    // src: "http://www.yipinworld.com/UploadFiles/2016-06-05/897f87a8-e279-41de-a9cb-0fce72148bc7.mp4"
+                },
+                {
+                    name: "default",
+                    label: "480",
+                    // type: "video/mp4",
+                    // src: "http://vjs.zencdn.net/v/oceans.mp4"
+                }
+            ],
+            plugins: {
+                advanced: true,
+                videoJsOutLayer: {
+                    ui: true,
+                },
+
+            },
+            controlBar: { // 设置控制条组件
+                children: [{
+                        name: 'playToggle'
+                    }, // 播放按钮
+                    {
+                        name: 'currentTimeDisplay'
+                    }, // 当前已播放时间
+                    {
+                        name: 'progressControl'
+                    }, // 播放进度条
+                    {
+                        name: 'durationDisplay'
+                    }, // 总时间
+                    {
+                        name: "RightButton", //撑开左右
+                        children: [{ // 倍数播放
+                                name: 'playbackRateMenuButton',
+                                'playbackRates': [0.5, 1, 1.5, 2, 2.5]
+                            },
+                            {
+                                name: "qualityMenuButton"
+                            },
+                            {
+                                name: 'volumePanel', // 音量控制
+                                inline: false, // 不使用水平方式
+
+                            }, {
+                                name: "WideScreenButton"
+                            },
+                            {
+                                name: "SettingPanel"
+                            },
+                            {
+                                name: 'FullscreenToggle'
+                            }
+                            // 全屏
+                        ]
+                    },
+
+                ]
+            },
+
+            userActions: {
+                hotkeys: function (event) {
+                    // `this` is the player in this context
+                    const volume = this.volume();
+                    const currentTime = this.currentTime();
+                    // console.log("hot", event.which, volume)
+                    // `x` key = pause
+                    if (event.which === 32) {
+                        this.paused() ? this.play() : this.pause();
+                    }
+                    // `↑` key = play
+                    if (event.which === 38) { //+音量
+                        this.muted(false)
+                        this.volume(volume + 0.1)
+                    }
+                    if (event.which === 40) { //-音量
+                        this.volume(volume - 0.1);
+                        if (this.volume() === 0)
+                            this.muted(true);
+                    }
+                    if (event.which === 37) { //后退 5s
+                        this.currentTime(currentTime - 5);
+                    }
+                    if (event.which === 39) { //前进 5s
+                        this.currentTime(currentTime + 5);
+                    }
+                }
+            },
+
+        };
+
+        var player = videojs('#my_video', options,
+            function onPlayerReady() {
+                videojs.log('播放器已经准备好了', this);
+
+                // In this context, `this` is the player that was created by Video.js.<br> // 注意，这个地方的上下文， `this`
+                // 指向的是Video.js的实例对像player
+                //this.play();
+                this.volume(0.5)
+                // this.getChild('controlBar').addChild('MySpecialButton', {}); //附加最后的自定义组件
+                this.addChild('TitleBar', {
+                    text: "Author-admin",
+                    avatar: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3197781524,736643637&fm=26&gp=0.jpg",
+                    link: "http://www.baidu.com"
+                }); //附加最后的自定义组件
+                // How about an event listener?<br> // 如何使用事件监听？
+
+                this.on('ended', function () {
+                    videojs.log('播放结束了');
+                });
+            });
+    </script>
+
+    <script>
+        $(function () {
+            $.ajax({
+                url: 'https://www.fastmock.site/mock/ba626d3a3c555c7573691f44c72396fa/videjs/videjs/playlists',
+                method: "get",
+                success: function (data) {
+                    console.log(data)
+                    if (data.code === 1) {
+                        player.playlist(data.lists);
+                        // Initialize the playlist-ui plugin with no option (i.e. the defaults).
+                        player.playlistUi();
+                    } else {
+                        alert("获取列表失败")
+                    }
+
+                },
+                error: function (err) {
+                    console.log(err)
+                    alert("获取列表失败")
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

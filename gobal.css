@@ -1,0 +1,515 @@
+ * {
+     margin: 0;
+     padding: 0;
+ }
+
+ header,
+ footer {
+     display: block;
+     text-align: center;
+ }
+
+ .wrap-video {
+     position: relative;
+     width: 50%;
+     max-width: 100%;
+     min-width: 450px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 20px auto;
+     /* padding-bottom: 4em; */
+     /* background-color: #000; */
+ }
+
+ /*按钮间隙*/
+ .vjs-right-button>.vjs-button {
+     margin: 0 5px;
+ }
+
+ .video-js .vjs-control,
+ .video-js .vjs-tech {
+     outline: none;
+
+ }
+
+ /* 播放标题*/
+ .video-js .vjs-title-bar {
+     color: rgba(76, 109, 109, 0.384);
+     /* font-size: 2em; */
+
+     position: absolute;
+     top: 0;
+     right: 0;
+     min-width: 100px;
+     height: 40px;
+
+     border-radius: 12px/20px;
+ }
+
+ .vjs-has-started .vjs-title-bar {
+     display: flex;
+     visibility: visible;
+     opacity: 1;
+     transition: visibility 0.1s, opacity 0.1s;
+ }
+
+ /* 用户不活动时设计title bar自动隐藏 */
+ .vjs-has-started.vjs-user-inactive.vjs-playing .vjs-title-bar {
+     visibility: visible;
+     /*visibility: hidden;*/
+     opacity: 0;
+     transition: visibility 1s, opacity 1s;
+ }
+
+ .vjs-controls-disabled .vjs-title-bar,
+ .vjs-using-native-controls .vjs-title-bar,
+ .vjs-error .vjs-title-bar {
+     display: none !important;
+ }
+
+ .vjs-audio.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-title-bar {
+     opacity: 0;
+     visibility: visible;
+     /*visibility: hidden;*/
+ }
+
+ .vjs-has-started.vjs-no-flex .vjs-title-bar {
+     display: table;
+ }
+
+ .vjs-title-bar:hover {
+     background-color: rgba(220 227 193)
+ }
+
+ .vjs-title-bar a {
+     text-decoration: none;
+     display: flex;
+     width: 100px;
+     height: 40px;
+
+     align-items: center;
+     justify-content: center;
+ }
+
+ .vjs-title-bar a span {
+     display: inline-block;
+     width: 50px;
+ }
+
+ .vjs-title-bar a img {
+     width: 30px;
+     height: 30px;
+     margin-right: 10px;
+     border-radius: 50%;
+ }
+
+ /* 中间大的播放按钮 */
+ .video-js .vjs-big-play-button {
+     font-size: 2.7em;
+     line-height: 3em;
+     height: 3em;
+     width: 3em;
+     -webkit-border-radius: 2.2em;
+     -moz-border-radius: 2.2em;
+     border-radius: 2.2em;
+     margin-top: -1.8em;
+     margin-left: -1.5em;
+ }
+
+ /* 中间的播放箭头 */
+ .vjs-big-play-button .vjs-icon-placeholder {
+     font-size: 1.63em;
+ }
+
+ /* 点击屏幕播放/暂停*/
+ .video-js.vjs-paused .vjs-big-play-button {
+     /* 视频暂停时显示播放按钮 */
+     display: block;
+ }
+
+ .video-js.vjs-playing .vjs-tech {
+     pointer-events: auto;
+ }
+
+ .video-js.vjs-error .vjs-big-play-button {
+     /* 视频加载出错时隐藏播放按钮 */
+     display: none;
+ }
+
+ .vjs-loading-spinner {
+     /* 加载圆圈 */
+     font-size: 2em;
+     width: 2em;
+     height: 2em;
+     border-radius: 1em;
+     margin-top: -1em;
+     margin-left: -1.5em;
+ }
+
+ /*控制条显隐*/
+
+ /*暂停切换分辨率显示控制条*/
+ .vjs-paused .vjs-control-bar {
+     display: flex;
+ }
+
+ .video-js.vjs-paused.vjs-has-started .vjs-title-bar,
+ .video-js.vjs-user-active.vjs-has-started .vjs-title-bar {
+     display: block;
+ }
+
+ /*播放按钮*/
+ .vjs-control-bar .vjs-playing,
+ .vjs-control-bar .vjs-paused {
+
+     border-radius: 50%;
+     background-color: rgba(105, 147, 224, 0.3);
+ }
+
+ /*音量微调*/
+ .vjs-slider-vertical .vjs-volume-level:before {
+     left: -0.50em;
+ }
+
+ .video-js .vjs-play-progress:before {
+     top: -0.38em
+ }
+
+ /* 播放倍数 */
+ .vjs-menu li {
+     line-height: 1.8em;
+     font-size: 1.25em;
+ }
+
+
+ /*底部控制条 */
+ .video-js .vjs-control-bar {
+     height: 5em;
+     padding: 2em 0 0 0;
+ }
+
+ .vjs-progress-control.vjs-control {
+     position: absolute;
+     top: 8px;
+     left: 0;
+     height: 3px;
+     width: 100%;
+ }
+
+ /* 播放进度条滑块 */
+ .video-js .vjs-play-progress:before {
+     content: "\f004";
+     font-family: fontawesome;
+     color: red;
+     font-size: 18px;
+ }
+
+ .video-js .vjs-play-progress {
+     background-color: #FEA329;
+ }
+
+ /* 播放的当前时间和总时间 */
+ .video-js .vjs-current-time,
+ .vjs-no-flex .vjs-current-time,
+ .video-js .vjs-duration,
+ .vjs-no-flex .vjs-duration {
+     position: relative;
+     display: block;
+     width: 4em;
+     margin: 0;
+     padding: 0;
+ }
+
+
+ /*播放时间 增加 ‘/’ */
+ .video-js .vjs-current-time::after,
+ .vjs-no-flex .vjs-current-time ::after {
+     position: absolute;
+     content: "/";
+     right: -2px;
+
+ }
+
+ /* 播放按钮 */
+ .vjs-play-control {
+     margin: 0 10px !important;
+     width: 3em !important;
+     border-radius: 50%;
+     border: 1px dashed #ccd !important;
+ }
+
+ /* 音量滑块 */
+ .vjs-volume-bar.vjs-slider-vertical {
+     margin: 2.5em auto 0
+ }
+
+ /* 音量数字化 */
+ .vjs-volume-bar::before {
+     content: attr(aria-valuenow);
+     position: absolute;
+     color: #fff;
+     width: 3em;
+     left: -1.25em;
+     top: -2em;
+     text-align: center;
+ }
+
+ /*新增 setting 按钮*/
+
+ .vjs-setting-button .vjs-setting-button-value,
+ .vjs-setting-button>.vjs-menu-button {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+
+ .video-js .vjs-setting-button .vjs-icon-placeholder:before {
+     content: "\f013";
+     font-family: FontAwesome;
+ }
+
+ .vjs-setting-button .vjs-menu {
+     width: 4em;
+     left: 0;
+ }
+
+
+ .vjs-setting-button .vjs-playback-rate-value {
+     pointer-events: none;
+     font-size: 1.5em;
+     line-height: 2;
+     text-align: center
+ }
+
+ .vjs-setting-button .vjs-menu-content {
+     position: absolute;
+     left: -1em;
+     width: 6em !important;
+ }
+
+ .vjs-setting-button .vjs-menu-content .vjs-menu-item {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0 5px
+ }
+
+ /* CheckBox 开关按钮*/
+ .switch {
+     position: relative;
+     display: inline-block;
+     width: 20px;
+     height: 11px;
+ }
+
+ .switch input {
+     display: none;
+ }
+
+ .slider {
+     position: absolute;
+     cursor: pointer;
+     top: 0;
+     left: 0;
+     right: 0;
+     border-radius: 34px;
+     bottom: 0;
+     background-color: #ccc;
+     -webkit-transition: .4s;
+     transition: .4s;
+ }
+
+ .slider:before {
+     position: absolute;
+     content: "";
+     border-radius: 34px;
+     height: 9px;
+     width: 8px;
+     left: 2px;
+     bottom: 1px;
+     background-color: white;
+     -webkit-transition: .4s;
+     transition: .4s;
+ }
+
+ input:checked+.slider {
+     background-color: #2196F3;
+ }
+
+ input:focus+.slider {
+     box-shadow: 0 0 1px #2196F3;
+ }
+
+ input:checked+.slider:before {
+     -webkit-transform: translateX(8px);
+     -ms-transform: translateX(8px);
+     transform: translateX(8px);
+ }
+
+ /* 设置 按钮分组 居右 */
+ .vjs-button-right {
+     position: relative;
+     display: flex;
+     display: -webkit-flex;
+     flex-grow: 2;
+     justify-content: flex-end;
+ }
+
+ /*宽屏 自定义组件样式*/
+
+ .video-js .vjs-widescreen-button {
+     cursor: pointer;
+     flex: none;
+ }
+
+ .video-js .vjs-widescreen-button .vjs-icon-placeholder,
+ .vjs-icon-fullscreen-enter {
+     font-family: VideoJS;
+     font-weight: 400;
+     font-style: normal;
+ }
+
+ .video-js .vjs-widescreen-button .vjs-icon-placeholder:before,
+ .vjs-icon-widescreen-enter:before {
+     content: "\f07e";
+     font-family: FontAwesome;
+ }
+
+ /*内部宽屏*/
+ .vjs-wideScreen {
+     width: 100% !important;
+ }
+
+
+ /* Quality 切换清晰度 */
+
+ /* .video-js .vjs-quality-panel .vjs-icon-placeholder:before,
+ .vjs-icon-widescreen-enter:before {
+     content: "\f07e";
+     font-family: FontAwesome;
+ } */
+
+ .vjs-quality-panel .vjs-quality-value {
+     pointer-events: none;
+     font-size: 1.5em;
+     line-height: 2;
+     text-align: center;
+ }
+
+ .vjs-quality-panel.vjs-quality-panel-value,
+ .vjs-quality-panel>.vjs-menu-button {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+
+ .vjs-quality-panel .vjs-menu {
+     width: 5em;
+     left: 0;
+ }
+
+ .vjs-menu-button-popup .vjs-menu {
+     z-index: 2;
+ }
+
+ .vjs-right-button {
+     display: flex;
+     flex: 1;
+     justify-content: flex-end
+ }
+
+ /*略缩图调整*/
+ .vjs-mouse-display .vjs-canvas-panel {
+     margin: 0;
+     padding: 0;
+     width: 160px;
+     height: 90px;
+     background-color: transparent;
+ }
+
+ .vjs-canvas-panel canvas {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     left: -50%;
+     top: -100%;
+
+ }
+
+ .vjs-video .vjs-playing .vjs-big-play-button {
+     display: none;
+ }
+
+ /*播放列表*/
+ .info {
+     background-color: #eee;
+     border: thin solid #333;
+     border-radius: 3px;
+     padding: 0 5px;
+ }
+
+ .vjs-playlist-offset {
+     margin-left: -20%;
+ }
+
+ .vjs-playlist-item-list {
+     position: absolute !important;
+     font-size: 14px;
+     top: 0;
+     /* right: -20%; */
+     width: 20%;
+     height: 100%;
+     overflow-y: scroll;
+ }
+
+ /*遮罩层*/
+ .vjs-out-layer {
+     position: absolute;
+     border: 1px solid red;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 3;
+     opacity: 0;
+     overflow: visible !important;
+     background-color: rgba(105, 147, 224, 0.3);
+     color: #000;
+ }
+
+ .vjs-hidden-opacity {
+     opacity: 1;
+ }
+
+ .vjs-mydefine-right-menu {
+     position: absolute;
+     display: block;
+     /* display: none; */
+     width: 100px;
+     border-radius: 5px;
+
+     z-index: 6;
+     color: #fff;
+     background-color: #404040;
+ }
+
+ .video-js ul {
+     list-style: none;
+ }
+
+ .video-js .vjs-mydefine-right-menu li {
+     list-style: none;
+     font-size: 14px;
+     line-height: 1.5em;
+     text-align: center;
+     padding: 3px 0;
+ }
+
+ .video-js .vjs-mydefine-right-menu li:hover {
+     background-color: rgba(143, 177, 188, 0.349);
+ }
